@@ -1,0 +1,12 @@
+[submodule "services/api"]
+	path = services/api
+	url = git@github.com:mcrehab/api.git
+[submodule "services/models"]
+	path = services/models
+	url = git@github.com:mcrehab/models.git
+[submodule "services/rbac"]
+	path = services/rbac
+	url = git@github.com:mcrehab/rbac.git
+[submodule "frontends/app"]
+	path = frontends/app
+	url = git@github.com:mcrehab/frontend-app.git
