@@ -18,8 +18,10 @@ importers:
       '@clr/ui': 5.3.0_@cds+core@5.3.0+@clr+icons@5.3.0
       '@mc.rehab/models': link:../../services/models
       '@webcomponents/webcomponentsjs': 2.5.0
+      ngx-toastr: 14.0.0_cf15deb3a4d30d03950e77eae754c246
       rxjs: 6.6.7
       tslib: 2.2.0
+      typescript: 4.2.4
       zone.js: 0.11.4
     devDependencies:
       '@angular-devkit/build-angular': 12.0.3_064084de5cd7cef2910007900f789248
@@ -33,7 +35,6 @@ importers:
       karma-coverage: 2.0.3
       karma-jasmine: 4.0.1_karma@6.3.3
       karma-jasmine-html-reporter: 1.6.0_964f0dd18679323a338fcdd6a7206b2b
-      typescript: 4.2.4
     specifiers:
       '@angular-devkit/build-angular': ~12.0.3
       '@angular.studio/api-client': ^0.0.6
@@ -63,6 +64,7 @@ importers:
       karma-coverage: ~2.0.3
       karma-jasmine: ~4.0.0
       karma-jasmine-html-reporter: ^1.5.0
+      ngx-toastr: ^14.0.0
       rxjs: ~6.6.0
       tslib: ^2.1.0
       typescript: ~4.2.3
@@ -169,16 +171,16 @@ importers:
       passport-google-oauth20: 2.0.0
       passport-jwt: 4.0.0
       typeorm: 0.2.34
+      typescript: 4.3.2
     devDependencies:
       '@types/jest': 26.0.23
       '@types/node': 14.17.2
       concurrently: 5.3.0
       jest: 26.6.3
       ts-jest: 26.5.6_jest@26.6.3+typescript@4.3.2
-      typescript: 4.3.2
       wait-on: 5.3.0
     specifiers:
-      '@mc.rehab/models': workspace:../models
+      '@mc.rehab/models': workspace:^0.0.4
       '@nestjs-plus/rabbitmq': ^1.4.4
       '@nestjs.pro/common': ^1.0.115
       '@nestjs.pro/logger-elasticsearch': 0.1.7
@@ -2157,7 +2159,7 @@ packages:
       integrity: sha512-ewUy2rjiRWi6SziI5gXZnlat7PfnVklL3tusnU1qqtUm74cPY1Zre+zDCJ27P/+B7sFJHbkFfpi0qQP2pQv9jQ==
   /@nestjs/core/7.6.17_@nestjs+common@7.6.17:
     dependencies:
-      '@nestjs/common': 7.6.17_b771dca686b3b059325add7ac728be05
+      '@nestjs/common': 7.6.17
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.0.7
       iterare: 1.2.1
@@ -2472,7 +2474,7 @@ packages:
       integrity: sha512-qMUHaTMo+U5WOlMfL0ogNm8C2T/Kej/v+NnjSixx/UmtluLvTbNYuZUfbHI9ePCmtCXDV0lMRvIAi+U5LCjsbA==
   /@nestjs/typeorm/7.1.5_ade2820512a9af030f2263e25d0070ec:
     dependencies:
-      '@nestjs/common': 7.6.17_b771dca686b3b059325add7ac728be05
+      '@nestjs/common': 7.6.17
       '@nestjs/core': 7.6.17_@nestjs+common@7.6.17
       typeorm: 0.2.34
       uuid: 8.3.1
@@ -3451,7 +3453,7 @@ packages:
       integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   /axios/0.21.1:
     dependencies:
-      follow-redirects: 1.14.1_debug@4.3.1
+      follow-redirects: 1.14.1
     resolution:
       integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /babel-jest/26.6.3_@babel+core@7.14.3:
@@ -5689,7 +5691,6 @@ packages:
     resolution:
       integrity: sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
   /follow-redirects/1.14.1:
-    dev: true
     engines:
       node: '>=4.0'
     peerDependencies:
@@ -5702,6 +5703,7 @@ packages:
   /follow-redirects/1.14.1_debug@4.3.1:
     dependencies:
       debug: 4.3.1_supports-color@6.1.0
+    dev: true
     engines:
       node: '>=4.0'
     peerDependencies:
@@ -8272,6 +8274,19 @@ packages:
     dev: false
     resolution:
       integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
+  /ngx-toastr/14.0.0_cf15deb3a4d30d03950e77eae754c246:
+    dependencies:
+      '@angular/common': 12.0.3_@angular+core@12.0.3+rxjs@6.6.7
+      '@angular/core': 12.0.3_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/platform-browser': 12.0.3_e6522aefa7967bb82b1cfa5655e826d2
+      tslib: 2.2.0
+    dev: false
+    peerDependencies:
+      '@angular/common': '>=12.0.0-0'
+      '@angular/core': '>=12.0.0-0'
+      '@angular/platform-browser': '>=12.0.0-0'
+    resolution:
+      integrity: sha512-dnDzSY73pF6FvNyxdh6ftfvXvUg6SU7MAT3orPUCzA77t3ZcFslro06zk4NCA2g67RF7dBwM0OJ/y0SN6fdGYw==
   /nice-try/1.0.5:
     dev: true
     resolution:
@@ -11569,7 +11584,6 @@ packages:
     resolution:
       integrity: sha512-FZAeEGGdSGq7uTH3FWRQq67JjKu0mgANsSZ04j3kvDYNgy9KwBl/6RFgMVgiSgjf7Rqd7NrhC2KxVT7I80qf7w==
   /typescript/4.2.4:
-    dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true

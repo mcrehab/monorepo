@@ -1,0 +1,6 @@
+bin
+.serverless
+.vscode/
+creds/
+
+.DS_Store
