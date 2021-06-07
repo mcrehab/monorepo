@@ -18,7 +18,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.05"
+          cpus: "0.5"
     volumes:
       - mc-mysql:/var/lib/mysql
     networks:
@@ -36,7 +36,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.05"
+          cpus: "0.5"
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -47,6 +47,7 @@ services:
 networks:
 
   mc:
+    external: true
 
 volumes:
   mc-mysql:

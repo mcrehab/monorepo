@@ -2,19 +2,14 @@ version: '3'
 
 services:
 
-  sp-haproxy:
-    container_name: sp-haproxy
+  mc-haproxy:
+    container_name: mc-haproxy
     build: .
     ports:
-      - 18080:80
+      - 18081:80
     networks:
-
-      sp:
-
-        ipv4_address: 66.0.0.10
+      - mc
 
 networks:
-
-  sp:
-
+  mc:
     external: true
