@@ -4,7 +4,9 @@ provider "github" {
     token = local.github_token
 
 }
-
+output "aa" {
+    value = google_sql_database_instance.mysql.ip_address
+}
 module "github-secrets" {
 
     count = length(local.services)
@@ -52,8 +54,56 @@ module "github-secrets" {
         }, {
 
             repository      = local.services[ count.index ].repository
+            secret_name     = "DB_HOSTNAME"
+            plaintext_value = google_sql_database_instance.mysql.ip_address[ 0 ][ "ip_address" ]
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
             secret_name     = "NPM_TOKEN"
             plaintext_value = local.npm_token
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "DB_NAME"
+            plaintext_value = "mc"
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "DB_USERNAME"
+            plaintext_value = "root"
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "DB_PASSWORD"
+            plaintext_value = "Agby5kma0130"
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "RABBITMQ_URI"
+            plaintext_value = "amqp://rabbitmq:agaeq14@rabbitmq:5672"
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "ELASTICSEARCH_HOST"
+            plaintext_value = "elasticsearch"
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "ELASTICSEARCH_PORT"
+            plaintext_value = "9200"
+
+        }, {
+
+            repository      = local.services[ count.index ].repository
+            secret_name     = "ELASTICSEARCH_SCHEME"
+            plaintext_value = "http"
 
         }
 

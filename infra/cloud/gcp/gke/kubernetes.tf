@@ -1,3 +1,10 @@
+resource "google_service_account" "default" {
+
+    account_id   = "mcrehab-dev-1-gke"
+    display_name = "mcrehab-dev-1-gke"
+
+}
+
 resource "google_container_cluster" "cluster" {
 
     name                     = local.name
@@ -65,6 +72,14 @@ resource "google_container_node_pool" "services-1" {
         disk_size_gb = 30
         preemptible  = true
 
+        service_account = google_service_account.default.email
+        oauth_scopes    = [
+
+            "https://www.googleapis.com/auth/cloud-platform",
+            "https://www.googleapis.com/auth/devstorage.read_only"
+
+        ]
+
         labels = {
 
             role = "services"
@@ -116,6 +131,29 @@ data "kubernetes_secret" "this" {
     metadata {
 
         name = kubernetes_service_account.service-account.default_secret_name
+
+    }
+
+}
+
+output "asdf" {
+
+    value = base64decode(google_service_account_key.github.private_key)
+}
+
+resource "kubernetes_secret" "gcr" {
+
+    type = "kubernetes.io/dockerconfigjson"
+
+    metadata {
+
+        name = "gcr"
+
+    }
+
+    data = {
+
+        ".dockerconfigjson" = base64decode(google_service_account_key.github.private_key)
 
     }
 
