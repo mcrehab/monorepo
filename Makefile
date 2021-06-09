@@ -373,7 +373,7 @@ stack/module/up: guard-MODULE
 ### Rebuild (with no-cache opt) and start a SINGLE service module.
 stack/module/rebuild/nocache: guard-MODULE
 
-	@echo; echo "$(GREEN)Rebuilding (no-cache) $$MODULE$(RESET)"; echo; make stack/module/download; MODULE_NAME=$$USERNAME-$$MODULE envsubst < services/$$MODULE/docker-compose.yaml | docker-compose -f - build --no-cache
+	@echo; echo "$(GREEN)Rebuilding $$MODULE$(RESET)"; echo; cd services/$$MODULE; docker-compose build --no-cache
 	@$(MAKE) stack/module/down
 	@$(MAKE) stack/module/up
 
@@ -404,13 +404,6 @@ stack/modules/rebuild/serial:
 
 	@echo "$(GREEN)Checking for init.sh to call before building in each module...$(RESET)"
 	@for F in $(MODULES_TO_COMPOSE); do echo; echo "$(PURPLE)Rebuilding $$F$(RESET)"; echo; make stack/module/download MODULE=$$F; MODULE=services/$$F MODULE_NAME=$$USERNAME-$$F envsubst < services/$$F/docker-compose.yaml | docker-compose -f - build; done
-	@$(MAKE) stack/modules/restart
-
-### Rebuild (with no-cache opt) and start all service modules.
-stack/modules/rebuild/nocache:
-
-	@echo "$(GREEN)Checking for init.sh to call before building in each module...$(RESET)"
-	@for F in $(MODULES_TO_COMPOSE); do echo; echo "$(PURPLE)Rebuilding $$F$(RESET)"; echo; make stack/module/download MODULE=$$F; MODULE=services/$$F MODULE_NAME=$$USERNAME-$$F envsubst < services/$$F/docker-compose.yaml | docker-compose -f - build --no-cache; done
 	@$(MAKE) stack/modules/restart
 
 ### Restart (not rebuild) all servivce modules.
