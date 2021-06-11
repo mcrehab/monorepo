@@ -4,12 +4,12 @@ module "rabbitmq-cluster" {
     #    version = "2.0.5"
     source = "/Users/yomateo/workspace/tf/terraform-kubernetes-rabbitmq-cluster"
 
-    host      = "https://${ data.google_container_cluster.cluster.endpoint }"
-    token     = data.google_client_config.config.access_token
-    insecure  = true
-    namespace = "default"
-    name      = "rabbitmq"
-
+    host             = "https://${ data.google_container_cluster.cluster.endpoint }"
+    token            = data.google_client_config.config.access_token
+    insecure         = true
+    namespace        = "default"
+    name             = "rabbitmq"
+    image            = "rabbitmq:3.7.17-management"
     request_cpu      = "200m"
     request_memory   = "500Mi"
     limit_cpu        = "500m"

@@ -2,6 +2,8 @@ importers:
   frontends/app:
     dependencies:
       '@angular.studio/api-client': 0.0.10_463f8feb7e122cc636d82fa34057b121
+      '@angular.studio/clr-confirm': 0.0.2_5a6ecb00f39911d3b971f525733a73ca
+      '@angular.studio/clr-form': 0.0.14_463f8feb7e122cc636d82fa34057b121
       '@angular.studio/clr-login': 0.0.13_2c47d8fb76bd1d2f81fec40c80e626ff
       '@angular.studio/clr-search': 0.0.19_68764f8b4000ff7eb4e3ad26090c3fe6
       '@angular.studio/clr-wizard': 0.0.20_5a6ecb00f39911d3b971f525733a73ca
@@ -19,8 +21,9 @@ importers:
       '@clr/angular': 5.3.0_0b75ddb145189af3f5866e2c9e69393f
       '@clr/icons': 5.3.0
       '@clr/ui': 5.3.0_@cds+core@5.3.0+@clr+icons@5.3.0
-      '@mc.rehab/models': link:../../services/models
+      '@mc.rehab/models': 0.0.24_rxjs@6.6.7
       '@webcomponents/webcomponentsjs': 2.5.0
+      ngx-spinner: 11.0.1_463f8feb7e122cc636d82fa34057b121
       ngx-toastr: 14.0.0_cf15deb3a4d30d03950e77eae754c246
       rxjs: 6.6.7
       tslib: 2.2.0
@@ -41,6 +44,8 @@ importers:
     specifiers:
       '@angular-devkit/build-angular': ~12.0.3
       '@angular.studio/api-client': 0.0.10
+      '@angular.studio/clr-confirm': ^0.0.2
+      '@angular.studio/clr-form': 0.0.14
       '@angular.studio/clr-login': ^0.0.13
       '@angular.studio/clr-search': ^0.0.19
       '@angular.studio/clr-wizard': ^0.0.20
@@ -60,7 +65,7 @@ importers:
       '@clr/angular': ^5.3.0
       '@clr/icons': ^5.3.0
       '@clr/ui': ^5.3.0
-      '@mc.rehab/models': workspace:^0.0.8
+      '@mc.rehab/models': 0.0.24
       '@types/jasmine': ~3.6.0
       '@types/node': ^12.11.1
       '@webcomponents/webcomponentsjs': ^2.5.0
@@ -70,6 +75,7 @@ importers:
       karma-coverage: ~2.0.3
       karma-jasmine: ~4.0.0
       karma-jasmine-html-reporter: ^1.5.0
+      ngx-spinner: ^11.0.1
       ngx-toastr: ^14.0.0
       rxjs: ~6.6.0
       tslib: ^2.1.0
@@ -417,6 +423,31 @@ packages:
       '@angular/core': ^11.2.13
     resolution:
       integrity: sha512-LMCQXEMRm1dh4DPFRomeQF5CfIVKPP7hqudZ9LOleqRY2lQUx01zgZVGFfIlFXJcnJhKwe1C5jj+eGPxFRu0mQ==
+  /@angular.studio/clr-confirm/0.0.2_5a6ecb00f39911d3b971f525733a73ca:
+    dependencies:
+      '@angular/common': 12.0.3_@angular+core@12.0.3+rxjs@6.6.7
+      '@angular/core': 12.0.3_rxjs@6.6.7+zone.js@0.11.4
+      '@clr/ui': 5.3.0_@cds+core@5.3.0+@clr+icons@5.3.0
+      tslib: 2.2.0
+    dev: false
+    peerDependencies:
+      '@angular/common': ^11.2.9
+      '@angular/core': ^11.2.9
+      '@clr/core': ^4.0.12
+      '@clr/ui': ^5.1.1
+    resolution:
+      integrity: sha512-MEGgERjrGgBCINz0BVoFmo+vsIi+ISgX6AdcY9xasKlyq6rLQiC9v954qgN34Q6u1sE9O7jBznfLkyHK85j01g==
+  /@angular.studio/clr-form/0.0.14_463f8feb7e122cc636d82fa34057b121:
+    dependencies:
+      '@angular/common': 12.0.3_@angular+core@12.0.3+rxjs@6.6.7
+      '@angular/core': 12.0.3_rxjs@6.6.7+zone.js@0.11.4
+      tslib: 2.2.0
+    dev: false
+    peerDependencies:
+      '@angular/common': ^11.2.9
+      '@angular/core': ^11.2.9
+    resolution:
+      integrity: sha512-68jpf6BuRXq57d1hAOjiXHzne8/ftxxgAcP/HcYQAfs9Iq40mBBOZvAbDaSDmxqul3Mn3MtLlF3EP74UmlcOjA==
   /@angular.studio/clr-login/0.0.13_2c47d8fb76bd1d2f81fec40c80e626ff:
     dependencies:
       '@angular/common': 12.0.3_@angular+core@12.0.3+rxjs@6.6.7
@@ -2192,6 +2223,24 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-4srsKPXWlIxp5Vbqz5uLfBN+du2fJChBoYn/f2h991WLdk7jUvcSk/McVLSv/X+xQIPI8eGD5GjrnygdyHnhPA==
+  /@mc.rehab/models/0.0.24_rxjs@6.6.7:
+    dependencies:
+      '@nestjs.pro/common': 1.0.115_b771dca686b3b059325add7ac728be05
+      '@nestjs/common': 7.6.17_01a05c4a39a1a2358551b05cee5cdd29
+      '@nestjs/core': 7.6.17_@nestjs+common@7.6.17+rxjs@6.6.7
+      '@nestjs/swagger': 4.8.0_b2a033f57ba7fa73fe7c004f4a9f33f9
+      '@nestjs/typeorm': 7.1.5_df95866fd57fe3c3af7787015f39999a
+      bcrypt: 5.0.1
+      class-transformer: 0.2.3
+      class-validator: 0.12.2
+      mysql: 2.18.1
+      typeorm: 0.2.34
+      typescript: 4.3.2
+    dev: false
+    peerDependencies:
+      rxjs: '*'
+    resolution:
+      integrity: sha512-4g0xxuiGnQ9HVWOsZiOMxHAby9dPz38/k5YmHXJQ560gAjykAh0jxFvbEHTu5jUzUKRxfIqf8+77118xk298aA==
   /@nestjs-plus/common/1.1.0:
     dependencies:
       shortid: 2.2.16
@@ -2354,6 +2403,31 @@ packages:
         optional: true
     resolution:
       integrity: sha512-RHvD32FxfV7yDWX9GPmn0ZSv7ka5kLeVamU5ZpoXSTUjkGqWFt3MTyIP+HUQD2778kDqT+CgEtVJ1fxDG5Oh9g==
+  /@nestjs/common/7.6.17_01a05c4a39a1a2358551b05cee5cdd29:
+    dependencies:
+      axios: 0.21.1
+      class-transformer: 0.2.3
+      class-validator: 0.12.2
+      iterare: 1.2.1
+      rxjs: 6.6.7
+      tslib: 2.2.0
+      uuid: 8.3.2
+    dev: false
+    peerDependencies:
+      cache-manager: '*'
+      class-transformer: '*'
+      class-validator: '*'
+      reflect-metadata: ^0.1.12
+      rxjs: ^6.0.0
+    peerDependenciesMeta:
+      cache-manager:
+        optional: true
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    resolution:
+      integrity: sha512-RHvD32FxfV7yDWX9GPmn0ZSv7ka5kLeVamU5ZpoXSTUjkGqWFt3MTyIP+HUQD2778kDqT+CgEtVJ1fxDG5Oh9g==
   /@nestjs/common/7.6.17_0384c131959f4e5b21a76285374edda2:
     dependencies:
       axios: 0.21.1
@@ -2429,6 +2503,35 @@ packages:
       iterare: 1.2.1
       object-hash: 2.1.1
       path-to-regexp: 3.2.0
+      tslib: 2.2.0
+      uuid: 8.3.2
+    dev: false
+    peerDependencies:
+      '@nestjs/common': ^7.0.0
+      '@nestjs/microservices': ^7.0.0
+      '@nestjs/platform-express': ^7.0.0
+      '@nestjs/websockets': ^7.0.0
+      reflect-metadata: ^0.1.12
+      rxjs: ^6.0.0
+    peerDependenciesMeta:
+      '@nestjs/microservices':
+        optional: true
+      '@nestjs/platform-express':
+        optional: true
+      '@nestjs/websockets':
+        optional: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-dH7PGDj1dvBfOYgxJlxh54vdnFFSLst7+Spg3E7Jpo+n11Ht5Ee5mTjSzXieRVfFba/sI3NIHF/N1stn36bU9w==
+  /@nestjs/core/7.6.17_@nestjs+common@7.6.17+rxjs@6.6.7:
+    dependencies:
+      '@nestjs/common': 7.6.17_01a05c4a39a1a2358551b05cee5cdd29
+      '@nuxtjs/opencollective': 0.3.2
+      fast-safe-stringify: 2.0.7
+      iterare: 1.2.1
+      object-hash: 2.1.1
+      path-to-regexp: 3.2.0
+      rxjs: 6.6.7
       tslib: 2.2.0
       uuid: 8.3.2
     dev: false
@@ -2740,6 +2843,22 @@ packages:
     dependencies:
       '@nestjs/common': 7.6.17_0384c131959f4e5b21a76285374edda2
       '@nestjs/core': 7.6.17_@nestjs+common@7.6.17
+      typeorm: 0.2.34
+      uuid: 8.3.1
+    dev: false
+    peerDependencies:
+      '@nestjs/common': ^6.7.0 || ^7.0.0
+      '@nestjs/core': ^6.7.0 || ^7.0.0
+      reflect-metadata: ^0.1.12
+      rxjs: ^6.0.0
+      typeorm: ^0.2.7
+    resolution:
+      integrity: sha512-utE1FkYM/gyCXUqw3zKYYS0YZ3DfkAnzsCx4T48cNnSDTCeWS+u3yt0FMDFjwSiQSaLrzpiSff/FaxJQvRlYow==
+  /@nestjs/typeorm/7.1.5_df95866fd57fe3c3af7787015f39999a:
+    dependencies:
+      '@nestjs/common': 7.6.17_01a05c4a39a1a2358551b05cee5cdd29
+      '@nestjs/core': 7.6.17_@nestjs+common@7.6.17+rxjs@6.6.7
+      rxjs: 6.6.7
       typeorm: 0.2.34
       uuid: 8.3.1
     dev: false
@@ -3113,7 +3232,7 @@ packages:
       integrity: sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
   /@types/jsonwebtoken/8.3.7:
     dependencies:
-      '@types/node': 14.17.2
+      '@types/node': 12.20.15
     dev: false
     resolution:
       integrity: sha512-B5SSifLkjB0ns7VXpOOtOUlynE78/hKcY8G8pOAhkLJZinwofIBYqz555nRj2W9iDWZqFhK5R+7NZDaRmKWAoQ==
@@ -3132,7 +3251,6 @@ packages:
     resolution:
       integrity: sha512-1z8k4wzFnNjVK/tlxvrWuK5WMt6mydWWP7+zvH5eFep4oj+UkrfiJTRtjCeBXNpwaA/FYqqtb4/QS4ianFpIRA==
   /@types/node/12.20.15:
-    dev: true
     resolution:
       integrity: sha512-F6S4Chv4JicJmyrwlDkxUdGNSplsQdGwp1A0AJloEVDirWdZOAiRHhovDlsFkKUrquUXhz1imJhXHsf59auyAg==
   /@types/node/14.17.2:
@@ -3170,7 +3288,7 @@ packages:
   /@types/request/2.48.5:
     dependencies:
       '@types/caseless': 0.12.2
-      '@types/node': 14.17.2
+      '@types/node': 12.20.15
       '@types/tough-cookie': 4.0.0
       form-data: 2.5.1
     dev: false
@@ -3749,7 +3867,7 @@ packages:
       integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   /axios/0.21.1:
     dependencies:
-      follow-redirects: 1.14.1
+      follow-redirects: 1.14.1_debug@4.3.1
     resolution:
       integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /babel-jest/26.6.3_@babel+core@7.14.3:
@@ -6064,6 +6182,7 @@ packages:
     resolution:
       integrity: sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
   /follow-redirects/1.14.1:
+    dev: true
     engines:
       node: '>=4.0'
     peerDependencies:
@@ -6076,7 +6195,6 @@ packages:
   /follow-redirects/1.14.1_debug@4.3.1:
     dependencies:
       debug: 4.3.1_supports-color@6.1.0
-    dev: true
     engines:
       node: '>=4.0'
     peerDependencies:
@@ -9132,6 +9250,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
+  /ngx-spinner/11.0.1_463f8feb7e122cc636d82fa34057b121:
+    dependencies:
+      '@angular/common': 12.0.3_@angular+core@12.0.3+rxjs@6.6.7
+      '@angular/core': 12.0.3_rxjs@6.6.7+zone.js@0.11.4
+      tslib: 2.2.0
+    dev: false
+    peerDependencies:
+      '@angular/common': ^11.0.0
+      '@angular/core': ^11.0.0
+    resolution:
+      integrity: sha512-fHCCxlF1kgEJqeKlgJDJdts/YLM3YH1qrBYcOiqo4b3dKZM1Vzv6yGMEekjsO1tETrmvvqOqsDH1gjJh3QVqjQ==
   /ngx-toastr/14.0.0_cf15deb3a4d30d03950e77eae754c246:
     dependencies:
       '@angular/common': 12.0.3_@angular+core@12.0.3+rxjs@6.6.7
@@ -11970,7 +12099,7 @@ packages:
       integrity: sha512-Pp8QyhFURPop35PIV0ipEAhhJzIK1+5OIzcVUNj+ZYhUnPawSIhmNxQYXAmGBTMPMAV4xLVVN9ggFuKb6nA/ZQ==
   /stripe/8.154.0:
     dependencies:
-      '@types/node': 14.17.2
+      '@types/node': 12.20.15
       qs: 6.10.1
     dev: false
     engines:

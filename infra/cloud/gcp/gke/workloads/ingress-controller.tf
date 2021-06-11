@@ -16,7 +16,6 @@ module "ingress-controller" {
 
 }
 
-
 resource "kubernetes_ingress" "dummy-ingress" {
 
     metadata {
