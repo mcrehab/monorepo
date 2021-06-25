@@ -13,3 +13,6 @@
 [submodule "services/billing"]
 	path = services/billing
 	url = git@github.com:mcrehab/billing.git
+[submodule "services/orchestrator"]
+	path = services/orchestrator
+	url = git@github.com:mcrehab/orchestrator.git
