@@ -8,7 +8,7 @@ services:
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - 3306:3306
+      - 33062:3306
     environment:
       MYSQL_USER: "mysql"
       MYSQL_PASSWORD: "mysql"
@@ -38,8 +38,8 @@ services:
         limits:
           cpus: "0.5"
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - "15673:15672"
+      - "5673:5672"
       - "5672"
     networks:
       - mc
