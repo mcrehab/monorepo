@@ -10,3 +10,6 @@
 [submodule "frontends/app"]
 	path = frontends/app
 	url = git@github.com:mcrehab/frontend-app.git
+[submodule "services/billing"]
+	path = services/billing
+	url = git@github.com:mcrehab/billing.git
